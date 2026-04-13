@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wedding Invitation | Muhammed Jinshad & Fathima Fida</title>
+    <meta name="description" content="You are cordially invited to the wedding celebration of Muhammed Jinshad & Fathima Fida.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background -->
+    <div class="bg-animated"></div>
+
+    <!-- Music Toggle -->
+    <div id="music-btn" class="music-toggle">
+        <i class="fas fa-music"></i>
+    </div>
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Page 1: Loading Screen -->
+    <section id="loading-screen" class="active">
+        <div class="loader-content">
+            <h2 class="accent-font">Loading your invitation...</h2>
+            <div class="dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <p>Please wait</p>
+        </div>
+    </section>
+
+    <!-- Page 2: Opening Invite -->
+    <section id="opening-invite">
+        <div class="opening-content">
+            <p class="opening-text">Together with our families, we invite you to celebrate our wedding.</p>
+            <h1 class="names-main">
+                Muhammed Jinshad
+                <span>&</span>
+                Fathima Fida
+            </h1>
+            <button id="btn-open-invite" class="btn-primary glow">Open Invitation</button>
+        </div>
+    </section>
+
+    <!-- Page 3: Invitation Letter & Countdown -->
+    <section id="invitation-letter">
+        <div class="invitation-card">
+            <h2 class="card-title">Muhammed Jinshad</h2>
+            <p class="accent-font">&</p>
+            <h1 class="card-title">Fathima Fida</h1>
+            
+            <div class="divider"></div>
+            
+            <p class="card-date">12 MAY 2026</p>
+            <p class="card-time">4:00 PM</p>
+            
+            <div class="card-location">
+                <p>Snehatheeram Auditorium</p>
+                <p>Ambalakkandy, Nagalaikavu, Puthur</p>
+            </div>
+
+            <p class="scroll-hint">Scroll for details</p>
+            
+            <!-- Countdown -->
+            <div id="countdown" class="countdown-container">
+                <div class="countdown-item">
+                    <span id="days" class="countdown-value">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours" class="countdown-value">00</span>
+                    <span class="countdown-label">Hrs</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes" class="countdown-value">00</span>
+                    <span class="countdown-label">Mins</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="countdown-value">00</span>
+                    <span class="countdown-label">Secs</span>
+                </div>
+            </div>
+
+            <div class="rsvp-prompt">
+                <h3 class="accent-font">Will you attend our wedding?</h3>
+                <div class="rsvp-options">
+                    <button class="btn-rsvp btn-yes" onclick="showGuestCount()">Yes, Inshallah 😍</button>
+                    <button class="btn-rsvp btn-no" onclick="handleNoAttend()">Sorry, I can’t attend</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 4: Guest Count Section -->
+    <section id="guest-count-section">
+        <div class="invitation-card">
+            <h2 class="accent-font">How many members?</h2>
+            <p>from your family</p>
+            
+            <div class="stepper">
+                <button class="step-btn" onclick="updateCount(-1)">-</button>
+                <div id="guest-count">1</div>
+                <button class="step-btn" onclick="updateCount(1)">+</button>
+            </div>
+            
+            <button class="btn-primary" onclick="submitRSVP()">Submit RSVP</button>
+        </div>
+    </section>
+
+    <!-- Page 5: Confirmation Page -->
+    <section id="confirmation-page">
+        <div class="invitation-card">
+            <h2 class="accent-font">We Can’t Wait!</h2>
+            <p class="names-tiny">Muhammed Jinshad & Fathima Fida</p>
+            
+            <p style="margin: 15px 0; font-size: 0.9rem;">Your RSVP has been received. We look forward to celebrating with you.</p>
+            
+            <div class="event-card">
+                <p><strong>12 MAY 2026</strong></p>
+                <p>4 PM</p>
+                <p style="font-size: 0.8rem; margin-top: 5px;">Snehatheeram Auditorium, Ambalakkandy, Nagalaikavu, Puthur</p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="https://www.google.com/maps/search/?api=1&query=Snehatheeram+Auditorium+Ambalakkandy+Nagalaikavu+Puthur" target="_blank" class="btn-small">
+                    <i class="fas fa-location-dot"></i> Location
+                </a>
+                <a href="tel:9743632798" class="btn-small">
+                    <i class="fas fa-phone"></i> Call
+                </a>
+            </div>
+
+            <div class="map-container">
+                <!-- Simple placeholder for Map or dynamic link -->
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    src="https://maps.google.com/maps?q=Snehatheeram%20Auditorium%20Ambalakkandy%20Nagalaikavu%20Puthur&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                </iframe>
+            </div>
+
+            <div class="action-buttons" style="grid-template-columns: 1fr;">
+                <a href="https://maps.google.com/maps?daddr=Snehatheeram+Auditorium+Ambalakkandy+Nagalaikavu+Puthur" target="_blank" class="btn-primary" style="text-decoration: none; padding: 12px;">Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popups -->
+    <div id="success-popup" class="popup-overlay">
+        <div class="popup-card">
+            <i class="fas fa-check-circle" style="color: var(--gold); font-size: 3rem; margin-bottom: 20px;"></i>
+            <h2>Thank You!</h2>
+            <p>Your response has been received. We look forward to celebrating with you.</p>
+            <button class="btn-primary" style="margin-top: 20px;" onclick="goToConfirmation()">Continue</button>
+        </div>
+    </div>
+
+    <div id="no-popup" class="popup-overlay">
+        <div class="popup-card">
+            <p>Thank you for letting us know.</p>
+            <button class="btn-primary" style="margin-top: 20px;" onclick="closeNoPopup()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
